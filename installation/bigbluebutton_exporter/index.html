@@ -1,0 +1,1241 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.12">
+    
+    
+      
+        <title>BigBlueButton Exporter - BigBlueButton Exporter</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4dd2dd8d.min.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.6a5ad368.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#4051b5">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="https://voh.nipwd.com/oss/bigbluebutton-exporter.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="indigo" data-md-color-accent="">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#installation-of-bigbluebutton-exporter" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="BigBlueButton Exporter" class="md-header-nav__button md-logo" aria-label="BigBlueButton Exporter">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis md-ellipsis">
+          BigBlueButton Exporter
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/greenstatic/bigbluebutton-exporter/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="BigBlueButton Exporter" class="md-nav__button md-logo" aria-label="BigBlueButton Exporter">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    BigBlueButton Exporter
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/greenstatic/bigbluebutton-exporter/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/" title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Installation
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Installation" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Installation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        BigBlueButton Exporter
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" title="BigBlueButton Exporter" class="md-nav__link md-nav__link--active">
+      BigBlueButton Exporter
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#docker-installation-recommended" class="md-nav__link">
+    Docker Installation (Recommended)
+  </a>
+  
+    <nav class="md-nav" aria-label="Docker Installation (Recommended)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-create-directory" class="md-nav__link">
+    1. Create directory
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-create-docker-compose-file" class="md-nav__link">
+    2. Create docker-compose file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-create-secrets-file" class="md-nav__link">
+    3. Create secrets file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-start-the-container" class="md-nav__link">
+    4. Start the container
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-create-http-basic-auth-password" class="md-nav__link">
+    5. Create HTTP basic auth password
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-add-nginx-site-configuration" class="md-nav__link">
+    6. Add Nginx site configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-reload-nginx-and-test" class="md-nav__link">
+    7. Reload Nginx and test
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-add-the-exporter-to-your-prometheus-configuration" class="md-nav__link">
+    8. Add the exporter to your Prometheus configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updates" class="md-nav__link">
+    Updates
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#systemd-installation-not-recommended" class="md-nav__link">
+    Systemd Installation (Not recommended)
+  </a>
+  
+    <nav class="md-nav" aria-label="Systemd Installation (Not recommended)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-install-python-3-pip" class="md-nav__link">
+    1. Install Python 3 pip
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-download-the-source-code-and-install-dependencies" class="md-nav__link">
+    2. Download the source code and install dependencies
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-create-a-non-privileged-user-for-the-exporter" class="md-nav__link">
+    3. Create a non-privileged user for the exporter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-copy-systemd-unit-service-and-example-settings" class="md-nav__link">
+    4. Copy Systemd unit service and example settings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-edit-settings-and-replace-api_base_url-and-api_secret" class="md-nav__link">
+    5. Edit settings and replace API_BASE_URL and API_SECRET
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-start-the-bigbluebutton-exporter-service" class="md-nav__link">
+    6. Start the bigbluebutton-exporter service
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-setup-nginx-as-a-tls-termination-proxy" class="md-nav__link">
+    7. Setup Nginx as a TLS termination proxy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-configure-prometheus" class="md-nav__link">
+    8. Configure Prometheus
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updates_1" class="md-nav__link">
+    Updates
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    Notes
+  </a>
+  
+    <nav class="md-nav" aria-label="Notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multiple-bigbluebutton-servers" class="md-nav__link">
+    Multiple BigBlueButton Servers
+  </a>
+  
+    <nav class="md-nav" aria-label="Multiple BigBlueButton Servers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-extending-prometheus-targets-recommended" class="md-nav__link">
+    1. Extending Prometheus targets (Recommended)
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Extending Prometheus targets (Recommended)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration-steps" class="md-nav__link">
+    Configuration steps
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-separate-job-not-recommended" class="md-nav__link">
+    2. Separate job (Not recommended)
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Separate job (Not recommended)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration-steps_1" class="md-nav__link">
+    Configuration steps
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../all_in_one_monitoring_stack/" title="All-In-One Monitoring Stack" class="md-nav__link">
+      All-In-One Monitoring Stack
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../node_exporter/" title="node_exporter" class="md-nav__link">
+      node_exporter
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../netdata/" title="Netdata" class="md-nav__link">
+      Netdata
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../exporter-user-guide/" title="Exporter User Guide" class="md-nav__link">
+      Exporter User Guide
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../debugging/" title="Debugging" class="md-nav__link">
+      Debugging
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../faq/" title="FAQ" class="md-nav__link">
+      FAQ
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../development/" title="Development" class="md-nav__link">
+      Development
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../support/" title="Support" class="md-nav__link">
+      Support
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#docker-installation-recommended" class="md-nav__link">
+    Docker Installation (Recommended)
+  </a>
+  
+    <nav class="md-nav" aria-label="Docker Installation (Recommended)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-create-directory" class="md-nav__link">
+    1. Create directory
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-create-docker-compose-file" class="md-nav__link">
+    2. Create docker-compose file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-create-secrets-file" class="md-nav__link">
+    3. Create secrets file
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-start-the-container" class="md-nav__link">
+    4. Start the container
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-create-http-basic-auth-password" class="md-nav__link">
+    5. Create HTTP basic auth password
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-add-nginx-site-configuration" class="md-nav__link">
+    6. Add Nginx site configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-reload-nginx-and-test" class="md-nav__link">
+    7. Reload Nginx and test
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-add-the-exporter-to-your-prometheus-configuration" class="md-nav__link">
+    8. Add the exporter to your Prometheus configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updates" class="md-nav__link">
+    Updates
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#systemd-installation-not-recommended" class="md-nav__link">
+    Systemd Installation (Not recommended)
+  </a>
+  
+    <nav class="md-nav" aria-label="Systemd Installation (Not recommended)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-install-python-3-pip" class="md-nav__link">
+    1. Install Python 3 pip
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-download-the-source-code-and-install-dependencies" class="md-nav__link">
+    2. Download the source code and install dependencies
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-create-a-non-privileged-user-for-the-exporter" class="md-nav__link">
+    3. Create a non-privileged user for the exporter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-copy-systemd-unit-service-and-example-settings" class="md-nav__link">
+    4. Copy Systemd unit service and example settings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-edit-settings-and-replace-api_base_url-and-api_secret" class="md-nav__link">
+    5. Edit settings and replace API_BASE_URL and API_SECRET
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-start-the-bigbluebutton-exporter-service" class="md-nav__link">
+    6. Start the bigbluebutton-exporter service
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-setup-nginx-as-a-tls-termination-proxy" class="md-nav__link">
+    7. Setup Nginx as a TLS termination proxy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8-configure-prometheus" class="md-nav__link">
+    8. Configure Prometheus
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updates_1" class="md-nav__link">
+    Updates
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    Notes
+  </a>
+  
+    <nav class="md-nav" aria-label="Notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multiple-bigbluebutton-servers" class="md-nav__link">
+    Multiple BigBlueButton Servers
+  </a>
+  
+    <nav class="md-nav" aria-label="Multiple BigBlueButton Servers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-extending-prometheus-targets-recommended" class="md-nav__link">
+    1. Extending Prometheus targets (Recommended)
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Extending Prometheus targets (Recommended)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration-steps" class="md-nav__link">
+    Configuration steps
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-separate-job-not-recommended" class="md-nav__link">
+    2. Separate job (Not recommended)
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Separate job (Not recommended)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration-steps_1" class="md-nav__link">
+    Configuration steps
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/greenstatic/bigbluebutton-exporter/edit/master/docs/installation/bigbluebutton_exporter.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  
+                
+                
+                <h1 id="installation-of-bigbluebutton-exporter">Installation of BigBlueButton Exporter<a class="headerlink" href="#installation-of-bigbluebutton-exporter" title="Permanent link">#</a></h1>
+<p>Two installation methods are supported:</p>
+<ul>
+<li>Docker (recommended)</li>
+<li>Systemd (not recommended)</li>
+</ul>
+<p>We recommend Docker because it is easier to update, reproduce builds and comes with all dependencies pre-installed.</p>
+<h2 id="docker-installation-recommended">Docker Installation (Recommended)<a class="headerlink" href="#docker-installation-recommended" title="Permanent link">#</a></h2>
+<p>These instructions will guide you through the installation procedure for BigBlueButton Exporter on your BigBlueButton server 
+and direct the HTTP basic auth protected endpoint <code>/metrics/</code> to expose your BigBlueButtons server's metrics.
+We assume you have a working installation of BigBlueButton with Nginx as the reverse proxy already set up.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>HTTP Basic Auth is required because each request to the <code>/metrics/</code> endpoint performs an API call to BigBlueButton 
+which takes a couple of seconds. </p>
+</div>
+<p>Prerequisite:</p>
+<ul>
+<li>Prometheus</li>
+<li>Docker</li>
+<li>docker-compose</li>
+<li>Working BigBlueButton server</li>
+</ul>
+<h3 id="1-create-directory">1. Create directory<a class="headerlink" href="#1-create-directory" title="Permanent link">#</a></h3>
+<div class="codehilite"><pre><span></span><code>mkdir ~/bbb-exporter
+</code></pre></div>
+
+
+<h3 id="2-create-docker-compose-file">2. Create docker-compose file<a class="headerlink" href="#2-create-docker-compose-file" title="Permanent link">#</a></h3>
+<p>Copy <a href="https://github.com/greenstatic/bigbluebutton-exporter/tree/master/extras/docker-compose.exporter.yaml">extras/docker-compose.exporter.yaml</a> 
+to your BigBlueButton server into <code>~/bbb-exporter/docker-compose.yaml</code>.
+Make sure to replace the Docker image tag to the <a href="https://github.com/greenstatic/bigbluebutton-exporter/releases">latest release</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We assume you will be running the exporter on the BigBlueButton server where you have access to the recordings
+directory (<code>/var/bigbluebutton</code>).
+We need access to this directory so we can efficiently compute the metrics for recordings.</p>
+<p>You can still run the exporter on a different host by disabling the optimization but will lose certain metrics 
+and increase scrape times. </p>
+<p>See <a href="/exporter-user-guide/#optimizations">details regarding the optimization</a>. </p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Docker best practice: pin your docker image to a specific tag to have a reproducible environment.
+This also makes it easier to check which version you are running and which is the latest release.</p>
+</div>
+<h3 id="3-create-secrets-file">3. Create secrets file<a class="headerlink" href="#3-create-secrets-file" title="Permanent link">#</a></h3>
+<p>Take a note of your BigBlueButton's API base url and secret by running:</p>
+<div class="codehilite"><pre><span></span><code>bbb-conf --secret
+</code></pre></div>
+
+
+<p>Then create the file <code>~/bbb-exporter/secrets.env</code> and fill out the <code>API_BASE_URL</code> and <code>API_SECRET</code> variables with your details.</p>
+<div class="codehilite"><pre><span></span><code>API_BASE_URL=https://example.com/bigbluebutton/api/
+API_SECRET=&lt;secret&gt;
+</code></pre></div>
+
+
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The API base url ends with <code>/api/</code> (beware of the trailing slash!). <code>bbb-conf --secret</code> will return the base url but
+not the base API url which has a <code>/api/</code> appended.</p>
+</div>
+<h3 id="4-start-the-container">4. Start the container<a class="headerlink" href="#4-start-the-container" title="Permanent link">#</a></h3>
+<div class="codehilite"><pre><span></span><code>sudo docker-compose up -d
+</code></pre></div>
+
+
+<p>The exporter should be running now.
+However you will not be able to access it externally because the docker-compose file binded the exporters port only to localhost.
+This is because we will use Nginx to act as a TLS termination proxy (reverse proxy with HTTPS support)  </p>
+<h3 id="5-create-http-basic-auth-password">5. Create HTTP basic auth password<a class="headerlink" href="#5-create-http-basic-auth-password" title="Permanent link">#</a></h3>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>For this you will need the handy <code>apache2-utils</code> package to create a password that will be used with HTTP basic auth by Nginx.
+You can install it (on Ubuntu) by running: <code>sudo apt-get install apache2-utils</code>.</p>
+</div>
+<p>Create a username (e.g. metrics) and password.
+You will be prompted after you run the <code>htpasswd</code> command for the desired password.</p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># You may replace metrics with any desired username</span>
+sudo htpasswd -c /etc/nginx/.htpasswd metrics
+</code></pre></div>
+
+
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you already have <code>/etc/nginx/.htpasswd</code> file then do not add the <code>-c</code> flag, otherwise you will overwrite the file.</p>
+</div>
+<h3 id="6-add-nginx-site-configuration">6. Add Nginx site configuration<a class="headerlink" href="#6-add-nginx-site-configuration" title="Permanent link">#</a></h3>
+<p>Add the location directive to your Nginx web server (<code>/etc/nginx/sites-available/bigbluebutton</code>) that will proxy traffic to
+<code>127.0.0.1:9688</code>.</p>
+<div class="codehilite"><pre><span></span><code># BigBlueButton Exporter (metrics)
+location /metrics/ {
+    auth_basic &quot;BigBlueButton Exporter&quot;;
+    auth_basic_user_file /etc/nginx/.htpasswd;
+    proxy_pass http://127.0.0.1:9688/;
+    include proxy_params;
+
+}
+</code></pre></div>
+
+
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>When upgrading BigBlueButton (using the script), the upgrade procedure will overwrite the contents of <code>/etc/nginx/sites-available/bigbluebutton</code>
+thereby causing you to lose access to your metrics. 
+So after the upgrade you will need to add the location directive again.</p>
+<p>You could also add a separate site configuration, but this will require you to point another domain to the server,
+configure virtual hosting and acquire a separate HTTPS certificate.</p>
+</div>
+<h3 id="7-reload-nginx-and-test">7. Reload Nginx and test<a class="headerlink" href="#7-reload-nginx-and-test" title="Permanent link">#</a></h3>
+<p>First check if your Nginx configuration is syntactically valid:</p>
+<div class="codehilite"><pre><span></span><code>sudo nginx -t
+</code></pre></div>
+
+
+<p>If everything is okay reload Nginx:</p>
+<div class="codehilite"><pre><span></span><code>sudo systemctl reload nginx
+</code></pre></div>
+
+
+<p>Now you can try accessing the metrics on <code>/metrics</code> and typing in your username/password that you choose in 
+<a href="#5-create-http-basic-auth-password">5. Create HTTP basic auth password</a></p>
+<p>You should get the raw metrics in the Prometheus format.</p>
+<h3 id="8-add-the-exporter-to-your-prometheus-configuration">8. Add the exporter to your Prometheus configuration<a class="headerlink" href="#8-add-the-exporter-to-your-prometheus-configuration" title="Permanent link">#</a></h3>
+<p>Now all that is left is to point your Prometheus to the exporter.</p>
+<p>In your <code>prometheus.yaml</code> configuration add a new job specifying the target (url of the exporter) and HTTP basic auth
+credentials.
+Replace <code>example.com</code> with your BigBlueButton's domain.</p>
+<div class="codehilite"><pre><span></span><code>- job_name: &#39;bbb&#39;
+  scrape_interval: 5s
+  scheme: https
+  basic_auth:
+    username: &quot;&lt;HTTP BASIC AUTH USERNAME&gt;&quot;
+    password: &quot;&lt;HTTP BASIC AUTH PASSWORD&gt;&quot;
+  static_configs:
+  - targets: [&#39;example.com&#39;]
+</code></pre></div>
+
+
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can scrape multiple exporters using a single job rule if they all have the same HTTP basic auth username/password in the Nginx termination proxy.
+See <a href="#multiple-bigbluebutton-servers">Multiple BigBlueButton Servers</a> for details.</p>
+</div>
+<h3 id="updates">Updates<a class="headerlink" href="#updates" title="Permanent link">#</a></h3>
+<p>To update your BigBlueButton exporter all you have to do is change the docker image tag to the latest release 
+(see <a href="https://github.com/greenstatic/bigbluebutton-exporter/releases">releases</a> or 
+<a href="https://hub.docker.com/r/greenstatic/bigbluebutton-exporter/tags">Docker image tags</a>) 
+in <code>~/bbb-exporter/docker-compose.yaml</code> and re-create the docker container by running:</p>
+<div class="codehilite"><pre><span></span><code><span class="nb">cd</span> ~/bbb-exporter
+docker-compose up -d
+</code></pre></div>
+
+
+<p>Since the container doesn't store anything it is safe to destroy the container.</p>
+<p>We recommend you "watch" on GitHub the <a href="https://github.com/greenstatic/bigbluebutton-exporter/">projects repository</a> to be notified
+on new releases.
+This way you will be always notified when a new update for BigBlueButton Exporter is available.</p>
+<h2 id="systemd-installation-not-recommended">Systemd Installation (Not recommended)<a class="headerlink" href="#systemd-installation-not-recommended" title="Permanent link">#</a></h2>
+<p>This is an alternative installation guide that does not require docker and installs the exporter as a Systemd unit.</p>
+<p>After the guide you will have:</p>
+<ul>
+<li>BigBlueButton Exporter installed system wide and you will be able to use systemctl to
+start/stop/restart the exporter</li>
+<li>Nginx as a TLS termination proxy for the exporter</li>
+</ul>
+<p>Installation should be on the BigBlueButton server, although it is possible to install it on a secondary machine, but 
+this will require you to install Nginx and set it up by yourself.</p>
+<h3 id="1-install-python-3-pip">1. Install Python 3 pip<a class="headerlink" href="#1-install-python-3-pip" title="Permanent link">#</a></h3>
+<div class="codehilite"><pre><span></span><code>sudo apt install python3-pip
+</code></pre></div>
+
+
+<h3 id="2-download-the-source-code-and-install-dependencies">2. Download the source code and install dependencies<a class="headerlink" href="#2-download-the-source-code-and-install-dependencies" title="Permanent link">#</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="nb">cd</span> /opt
+sudo git clone https://github.com/greenstatic/bigbluebutton-exporter.git
+<span class="nb">cd</span> bigbluebutton-exporter/
+<span class="c1"># It is recommended to checkout a release tag instead of using the master branch.</span>
+<span class="c1"># We recommend selecting the latest release tag from:</span>
+<span class="c1"># https://github.com/greenstatic/bigbluebutton-exporter/releases</span>
+sudo git checkout &lt;RELEASE TAG&gt;
+sudo pip3 install -r requirements.txt  <span class="c1"># will install the Python dependencies system-wide</span>
+</code></pre></div>
+
+
+<h3 id="3-create-a-non-privileged-user-for-the-exporter">3. Create a non-privileged user for the exporter<a class="headerlink" href="#3-create-a-non-privileged-user-for-the-exporter" title="Permanent link">#</a></h3>
+<div class="codehilite"><pre><span></span><code>sudo useradd -r -d /opt/bigbluebutton-exporter -s /usr/sbin/nologin bbb-exporter
+sudo chown -R bbb-exporter:bbb-exporter /opt/bigbluebutton-exporter
+</code></pre></div>
+
+
+<h3 id="4-copy-systemd-unit-service-and-example-settings">4. Copy Systemd unit service and example settings<a class="headerlink" href="#4-copy-systemd-unit-service-and-example-settings" title="Permanent link">#</a></h3>
+<div class="codehilite"><pre><span></span><code>sudo cp /opt/bigbluebutton-exporter/extras/systemd/bigbluebutton-exporter.service /lib/systemd/system/
+sudo mkdir /etc/bigbluebutton-exporter
+sudo cp /opt/bigbluebutton-exporter/extras/systemd/bigbluebutton-exporter/* /etc/bigbluebutton-exporter
+</code></pre></div>
+
+
+<h3 id="5-edit-settings-and-replace-api_base_url-and-api_secret">5. Edit settings and replace <code>API_BASE_URL</code> and <code>API_SECRET</code><a class="headerlink" href="#5-edit-settings-and-replace-api_base_url-and-api_secret" title="Permanent link">#</a></h3>
+<div class="codehilite"><pre><span></span><code>sudo nano /etc/bigbluebutton-exporter/settings.env 
+<span class="c1"># or using Vim</span>
+sudo vim /etc/bigbluebutton-exporter/settings.env 
+</code></pre></div>
+
+
+<h3 id="6-start-the-bigbluebutton-exporter-service">6. Start the bigbluebutton-exporter service<a class="headerlink" href="#6-start-the-bigbluebutton-exporter-service" title="Permanent link">#</a></h3>
+<div class="codehilite"><pre><span></span><code>sudo systemctl start bigbluebutton-exporter
+<span class="c1"># optional - enable exporter to autostart when booting host</span>
+sudo systemctl <span class="nb">enable</span> bigbluebutton-exporter
+</code></pre></div>
+
+
+<h3 id="7-setup-nginx-as-a-tls-termination-proxy">7. Setup Nginx as a TLS termination proxy<a class="headerlink" href="#7-setup-nginx-as-a-tls-termination-proxy" title="Permanent link">#</a></h3>
+<p>Follow <a href="#5-create-http-basic-auth-password">steps 5 - 7</a> from the Docker installation instructions.</p>
+<h3 id="8-configure-prometheus">8. Configure Prometheus<a class="headerlink" href="#8-configure-prometheus" title="Permanent link">#</a></h3>
+<p>Follow <a href="#8-add-the-exporter-to-your-prometheus-configuration">step 8</a> from the Docker installation instructions.</p>
+<h3 id="updates_1">Updates<a class="headerlink" href="#updates_1" title="Permanent link">#</a></h3>
+<p>To update the exporter all you need to do is issue a:</p>
+<div class="codehilite"><pre><span></span><code><span class="nb">cd</span> /opt/bigbluebutton-exporter
+sudo git pull
+sudo git checkout &lt;RELEASE TAG&gt;
+sudo chown -R bbb-exporter:bbb-exporter /opt/bigbluebutton-exporter
+sudo systemctl restart bigbluebutton-exporter
+</code></pre></div>
+
+
+<p>Check the <a href="https://github.com/greenstatic/bigbluebutton-exporter/releases">repository releases</a> to get the latest tag.
+It is recommended to watch the repository to be alerted when there is a new release available.</p>
+<h2 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">#</a></h2>
+<h3 id="multiple-bigbluebutton-servers">Multiple BigBlueButton Servers<a class="headerlink" href="#multiple-bigbluebutton-servers" title="Permanent link">#</a></h3>
+<p>There are two ways of configuring Prometheus to scrape multiple BigBlueButton exporters, the primary difference between the
+two is that one supports having different HTTP Basic Auth usernames/passwords for each exporter and the other doesn't.</p>
+<h4 id="1-extending-prometheus-targets-recommended">1. Extending Prometheus targets (Recommended)<a class="headerlink" href="#1-extending-prometheus-targets-recommended" title="Permanent link">#</a></h4>
+<p>Pro:</p>
+<ul>
+<li>Simple configuration</li>
+<li>Dashboards work out of the box</li>
+</ul>
+<p>Cons:</p>
+<ul>
+<li>All BigBlueButton exporters must have the same HTTP Basic Auth username/password</li>
+</ul>
+<h5 id="configuration-steps">Configuration steps<a class="headerlink" href="#configuration-steps" title="Permanent link">#</a></h5>
+<ol>
+<li>Configure a single BigBlueButton exporter Prometheus scrape job</li>
+<li>Configure the same HTTP Basic Auth username/password on all your Nginx TLS termination proxies 
+(that act as a reverse proxy for your BigBlueButton exporter)</li>
+<li>Append all the hosts to the Prometheus' <code>targets</code> field</li>
+</ol>
+<p>Example scrape job, place this under <code>scrape_configs</code> in your Prometheus configuration:</p>
+<div class="codehilite"><pre><span></span><code><span class="p p-Indicator">-</span> <span class="nt">job_name</span><span class="p">:</span> <span class="s">&#39;bbb_node_exporter&#39;</span>
+    <span class="nt">metrics_path</span><span class="p">:</span> <span class="s">&#39;/node_exporter/metrics&#39;</span>
+    <span class="nt">params</span><span class="p">:</span>
+      <span class="nt">format</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">prometheus</span><span class="p p-Indicator">]</span>
+    <span class="nt">honor_labels</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+    <span class="nt">scheme</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https</span>
+    <span class="nt">basic_auth</span><span class="p">:</span>
+      <span class="nt">username</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;HTTP BASIC AUTH USERNAME&gt;</span>  <span class="c1"># TODO - change</span>
+      <span class="nt">password</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;HTTP BASIC AUTH PASSWORD&gt;</span>  <span class="c1"># TODO - change</span>
+    <span class="nt">static_configs</span><span class="p">:</span>
+    <span class="c1"># TODO - change, add all of your BigBlueButton exporter hosts</span>
+    <span class="p p-Indicator">-</span> <span class="nt">targets</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;bbb.example.com&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;bbb2.example.com&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;bbb3.example.com&#39;</span><span class="p p-Indicator">]</span>
+</code></pre></div>
+
+
+<h4 id="2-separate-job-not-recommended">2. Separate job (Not recommended)<a class="headerlink" href="#2-separate-job-not-recommended" title="Permanent link">#</a></h4>
+<p>Pro:</p>
+<ul>
+<li>All BigBlueButton exporters can have different HTTP Basic Auth usernames/passwords</li>
+</ul>
+<p>Cons:</p>
+<ul>
+<li>More to configure</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This has not been tested and some changes to the provided Grafana dashboards might be required (in the future)!</p>
+</div>
+<h5 id="configuration-steps_1">Configuration steps<a class="headerlink" href="#configuration-steps_1" title="Permanent link">#</a></h5>
+<ol>
+<li>For each BigBlueButton exporter create a separate Prometheus scrape job </li>
+<li>Check to see if your Grafana dashboards are displaying all metrics correctly</li>
+</ol>
+<p>Here is an example of two job scrape configuration (for two different exporters). 
+Place this under <code>scrape_configs</code> in your Prometheus configuration for each job (exporter):</p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># TODO - change job_name, this has to be different for each job</span>
+<span class="p p-Indicator">-</span> <span class="nt">job_name</span><span class="p">:</span> <span class="s">&#39;bbb_node_exporter_1&#39;</span>
+  <span class="nt">metrics_path</span><span class="p">:</span> <span class="s">&#39;/node_exporter/metrics&#39;</span>
+  <span class="nt">params</span><span class="p">:</span>
+    <span class="nt">format</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">prometheus</span><span class="p p-Indicator">]</span>
+  <span class="nt">honor_labels</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+  <span class="nt">scheme</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https</span>
+  <span class="nt">basic_auth</span><span class="p">:</span>
+    <span class="nt">username</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;HTTP BASIC AUTH USERNAME&gt;</span>  <span class="c1"># TODO - change</span>
+    <span class="nt">password</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;HTTP BASIC AUTH PASSWORD&gt;</span>  <span class="c1"># TODO - change</span>
+  <span class="nt">static_configs</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">targets</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;bbb.example.com&#39;</span><span class="p p-Indicator">]</span>  <span class="c1"># TODO - change</span>
+
+<span class="c1"># TODO - change job_name, this has to be different for each job</span>
+<span class="p p-Indicator">-</span> <span class="nt">job_name</span><span class="p">:</span> <span class="s">&#39;bbb_node_exporter_2&#39;</span>
+  <span class="nt">metrics_path</span><span class="p">:</span> <span class="s">&#39;/node_exporter/metrics&#39;</span>
+  <span class="nt">params</span><span class="p">:</span>
+    <span class="nt">format</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">prometheus</span><span class="p p-Indicator">]</span>
+  <span class="nt">honor_labels</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+  <span class="nt">scheme</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https</span>
+  <span class="nt">basic_auth</span><span class="p">:</span>
+    <span class="nt">username</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;HTTP BASIC AUTH USERNAME&gt;</span>  <span class="c1"># TODO - change</span>
+    <span class="nt">password</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;HTTP BASIC AUTH PASSWORD&gt;</span>  <span class="c1"># TODO - change</span>
+  <span class="nt">static_configs</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">targets</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;bbb2.example.com&#39;</span><span class="p p-Indicator">]</span>  <span class="c1"># TODO - change</span>
+</code></pre></div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../../getting-started/" title="Getting Started" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Getting Started
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../all_in_one_monitoring_stack/" title="All-In-One Monitoring Stack" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                All-In-One Monitoring Stack
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.3636a4ec.min.js"></script>
+      <script src="../../assets/javascripts/bundle.e9fe3281.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.5eca75d3.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

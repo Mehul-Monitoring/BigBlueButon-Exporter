@@ -1,0 +1,730 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.12">
+    
+    
+      
+        <title>node_exporter - BigBlueButton Exporter</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4dd2dd8d.min.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.6a5ad368.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#4051b5">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="https://voh.nipwd.com/oss/bigbluebutton-exporter.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="indigo" data-md-color-accent="">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#node_exporter" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../.." title="BigBlueButton Exporter" class="md-header-nav__button md-logo" aria-label="BigBlueButton Exporter">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            BigBlueButton Exporter
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              node_exporter
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/greenstatic/bigbluebutton-exporter/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="BigBlueButton Exporter" class="md-nav__button md-logo" aria-label="BigBlueButton Exporter">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    BigBlueButton Exporter
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/greenstatic/bigbluebutton-exporter/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/" title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Installation
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Installation" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        Installation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../bigbluebutton_exporter/" title="BigBlueButton Exporter" class="md-nav__link">
+      BigBlueButton Exporter
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../all_in_one_monitoring_stack/" title="All-In-One Monitoring Stack" class="md-nav__link">
+      All-In-One Monitoring Stack
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        node_exporter
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" title="node_exporter" class="md-nav__link md-nav__link--active">
+      node_exporter
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#step-by-step-guide" class="md-nav__link">
+    Step-by-step Guide
+  </a>
+  
+    <nav class="md-nav" aria-label="Step-by-step Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-copy-extrasnode_exporter" class="md-nav__link">
+    1. Copy extras/node_exporter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-start-using-docker-compose" class="md-nav__link">
+    2. Start using docker-compose
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-create-http-basic-auth-password" class="md-nav__link">
+    3. Create HTTP basic auth password
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-add-nginx-site-configuration" class="md-nav__link">
+    4. Add Nginx site configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-add-node_exporter-to-your-prometheus-scrape-jobs" class="md-nav__link">
+    5. Add node_exporter to your Prometheus scrape jobs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-import-the-dashboard-to-your-grafana" class="md-nav__link">
+    6. Import the dashboard to your Grafana
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    Notes
+  </a>
+  
+    <nav class="md-nav" aria-label="Notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multiple-bigbluebutton-servers" class="md-nav__link">
+    Multiple BigBlueButton servers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../netdata/" title="Netdata" class="md-nav__link">
+      Netdata
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../exporter-user-guide/" title="Exporter User Guide" class="md-nav__link">
+      Exporter User Guide
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../debugging/" title="Debugging" class="md-nav__link">
+      Debugging
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../faq/" title="FAQ" class="md-nav__link">
+      FAQ
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../development/" title="Development" class="md-nav__link">
+      Development
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../support/" title="Support" class="md-nav__link">
+      Support
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#step-by-step-guide" class="md-nav__link">
+    Step-by-step Guide
+  </a>
+  
+    <nav class="md-nav" aria-label="Step-by-step Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-copy-extrasnode_exporter" class="md-nav__link">
+    1. Copy extras/node_exporter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-start-using-docker-compose" class="md-nav__link">
+    2. Start using docker-compose
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-create-http-basic-auth-password" class="md-nav__link">
+    3. Create HTTP basic auth password
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-add-nginx-site-configuration" class="md-nav__link">
+    4. Add Nginx site configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-add-node_exporter-to-your-prometheus-scrape-jobs" class="md-nav__link">
+    5. Add node_exporter to your Prometheus scrape jobs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-import-the-dashboard-to-your-grafana" class="md-nav__link">
+    6. Import the dashboard to your Grafana
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    Notes
+  </a>
+  
+    <nav class="md-nav" aria-label="Notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multiple-bigbluebutton-servers" class="md-nav__link">
+    Multiple BigBlueButton servers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/greenstatic/bigbluebutton-exporter/edit/master/docs/installation/node_exporter.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  
+                
+                
+                <h1 id="node_exporter">node_exporter<a class="headerlink" href="#node_exporter" title="Permanent link">#</a></h1>
+<p>Follow these instructions in order to view system resource utilization with the 
+<code>extras/dashboards/server_instace_node_exporter.json</code> Grafana dashboard.</p>
+<p>Instructions bellow will configure node_exporter to bind to localhost and configure Nginx as a reverse proxy that will expose 
+node_exporter via a location directive with HTTP basic auth.</p>
+<h2 id="step-by-step-guide">Step-by-step Guide<a class="headerlink" href="#step-by-step-guide" title="Permanent link">#</a></h2>
+<p><code>node_exporter</code> should be installed on your BigBlueButton server in order to expose system metrics for your Grafan 
+dashboards.</p>
+<h3 id="1-copy-extrasnode_exporter">1. Copy <code>extras/node_exporter</code><a class="headerlink" href="#1-copy-extrasnode_exporter" title="Permanent link">#</a></h3>
+<div class="codehilite"><pre><span></span><code>git clone https://github.com/greenstatic/bigbluebutton-exporter.git
+cp -r bigbluebutton-exporter/extras/node_exporter ~/
+</code></pre></div>
+
+
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Always check for the latest stable docker image tag (for the <code>docker-compose.yaml</code> file). </p>
+</div>
+<h3 id="2-start-using-docker-compose">2. Start using docker-compose<a class="headerlink" href="#2-start-using-docker-compose" title="Permanent link">#</a></h3>
+<div class="codehilite"><pre><span></span><code><span class="nb">cd</span> ~/node_exporter
+sudo docker-compose up -d
+</code></pre></div>
+
+
+<h3 id="3-create-http-basic-auth-password">3. Create HTTP basic auth password<a class="headerlink" href="#3-create-http-basic-auth-password" title="Permanent link">#</a></h3>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>For this you will need the handy <code>apache2-utils</code> package to create a password that will be used with HTTP basic auth by Nginx.
+You can install it (on Ubuntu) by running: <code>sudo apt install apache2-utils</code>.</p>
+</div>
+<p>Create a username (e.g. monitoring) and password.
+You will be prompted after you run the <code>htpasswd</code> command for the desired password.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The username and password combo doesn't need to be the same as the one for the exporter.</p>
+</div>
+<div class="codehilite"><pre><span></span><code><span class="c1"># You may replace monitoring with any desired username</span>
+<span class="c1"># add `-c` flag to create the file if it doesn&#39;t exist</span>
+sudo htpasswd /etc/nginx/.htpasswd monitoring
+</code></pre></div>
+
+
+<h3 id="4-add-nginx-site-configuration">4. Add Nginx site configuration<a class="headerlink" href="#4-add-nginx-site-configuration" title="Permanent link">#</a></h3>
+<p>Add the location directive to your Nginx web server (<code>/etc/nginx/sites-available/bigbluebutton</code>) that will proxy traffic to
+<code>127.0.0.1:9100</code>.</p>
+<div class="codehilite"><pre><span></span><code># node_exporter metrics
+location /node_exporter/ {
+    auth_basic &quot;node_exporter&quot;;
+    auth_basic_user_file /etc/nginx/.htpasswd;
+    proxy_pass http://127.0.0.1:9100/;
+    include proxy_params;
+}
+</code></pre></div>
+
+
+<h3 id="5-add-node_exporter-to-your-prometheus-scrape-jobs">5. Add node_exporter to your Prometheus scrape jobs<a class="headerlink" href="#5-add-node_exporter-to-your-prometheus-scrape-jobs" title="Permanent link">#</a></h3>
+<p>Add the following job to your Prometheus configuration.
+Replace <code>example.com</code> with your BigBlueButton's domain.</p>
+<div class="codehilite"><pre><span></span><code><span class="p p-Indicator">-</span> <span class="nt">job_name</span><span class="p">:</span> <span class="s">&#39;bbb_node_exporter&#39;</span>
+  <span class="nt">metrics_path</span><span class="p">:</span> <span class="s">&#39;/node_exporter/metrics&#39;</span>
+  <span class="nt">params</span><span class="p">:</span>
+    <span class="nt">format</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">prometheus</span><span class="p p-Indicator">]</span>
+  <span class="nt">honor_labels</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+  <span class="nt">scheme</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https</span>
+  <span class="nt">basic_auth</span><span class="p">:</span>
+    <span class="nt">username</span><span class="p">:</span> <span class="s">&quot;&lt;HTTP</span><span class="nv"> </span><span class="s">BASIC</span><span class="nv"> </span><span class="s">AUTH</span><span class="nv"> </span><span class="s">USERNAME&gt;&quot;</span>
+    <span class="nt">password</span><span class="p">:</span> <span class="s">&quot;&lt;HTTP</span><span class="nv"> </span><span class="s">BASIC</span><span class="nv"> </span><span class="s">AUTH</span><span class="nv"> </span><span class="s">PASSWORD&gt;&quot;</span>
+  <span class="nt">static_configs</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">targets</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;example.com&#39;</span><span class="p p-Indicator">]</span>
+</code></pre></div>
+
+
+<h3 id="6-import-the-dashboard-to-your-grafana">6. Import the dashboard to your Grafana<a class="headerlink" href="#6-import-the-dashboard-to-your-grafana" title="Permanent link">#</a></h3>
+<p>Log into your Grafana web interface, click on <code>+</code> -&gt; <code>Import</code> and select <code>Upload .json file</code>.
+Select the file <code>extras/dashboards/server_instance_node_exporter.json</code> from the repository (clone the repository or 
+copy the contents of the file).</p>
+<h2 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">#</a></h2>
+<h3 id="multiple-bigbluebutton-servers">Multiple BigBlueButton servers<a class="headerlink" href="#multiple-bigbluebutton-servers" title="Permanent link">#</a></h3>
+<p>If you wish to monitor multiple BigBlueButton servers simply do steps 1-4 for each server and then add each server's 
+domain to the <code>targets</code> field in Prometheuses <code>bbb_node_exporter</code> job configuration.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../all_in_one_monitoring_stack/" title="All-In-One Monitoring Stack" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                All-In-One Monitoring Stack
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../netdata/" title="Netdata" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Netdata
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.3636a4ec.min.js"></script>
+      <script src="../../assets/javascripts/bundle.e9fe3281.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.5eca75d3.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
