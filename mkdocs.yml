@@ -1,0 +1,30 @@
+site_name: BigBlueButton Exporter
+repo_url: https://github.com/greenstatic/bigbluebutton-exporter
+strict: true
+theme:
+  name: material
+  palette:
+    primary: indigo
+
+markdown_extensions:
+  - codehilite
+  - admonition
+  - toc:
+      permalink: "#"
+
+nav:
+  - Overview: index.md
+  - getting-started.md
+  - Installation:
+      - BigBlueButton Exporter: installation/bigbluebutton_exporter.md
+      - installation/all_in_one_monitoring_stack.md
+      - installation/node_exporter.md
+      - installation/netdata.md
+  - exporter-user-guide.md
+  - debugging.md
+  - faq.md
+  - development.md
+  - support.md
+
+extra_css:
+  - https://voh.nipwd.com/oss/bigbluebutton-exporter.css
